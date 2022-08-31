@@ -9,7 +9,7 @@ async function bootstrap() {
 
   app.useGlobalFilters(new AllExceptionsFilter());
 
-  Date.prototype.toJSON = function(): any {
+  Date.prototype.toJSON = function() {
     return moment(this).tz('America/Sao_Paulo').format('DD/MM/YYYY HH:mm:ss');
   }
 
