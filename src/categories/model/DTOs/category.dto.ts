@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { IsString, IsNotEmpty, IsArray, ArrayMinSize } from 'class-validator';
-import { Event } from '../../interfaces/event.interface';
+import { Event } from '../interfaces/event.interface';
 
 export class CategoryDTO {
     

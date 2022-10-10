@@ -1,7 +1,8 @@
 import { Injectable, Logger, BadRequestException } from '@nestjs/common';
 import { ClientProxySmartRanking } from '../rmqproxy/client-proxy';
-import { PlayerDTO } from './model/DTOs/player.dto';
+import { PlayerDTO } from './model/dtos/player.dto';
 import { Observable } from 'rxjs';
+import { UpdatePlayerDTO } from './model/dtos/update-player.dto';
 
 @Injectable()
 export class PlayersService {
@@ -41,6 +42,15 @@ export class PlayersService {
         } else {
             throw new BadRequestException("Category not found!");
         }
+    }
+
+
+    public async update2(dto: UpdatePlayerDTO): Promise<void> {
+
+        this.logger.log(`Player: ${ JSON.stringify(dto) }`);
+
+        await this.clientAdminBackend.emit("update-player", dto); 
+
     }
 
 

@@ -23,7 +23,7 @@ export class CognitoService {
 
         return new Promise((resolve, reject) => {
             this.userPool.signUp(email, password, [ new CognitoUserAttribute( { Name: 'phone_number', Value: phoneNumber } ),
-                                                    new CognitoUserAttribute( { Name: 'name', Value: name } )],
+                                                    new CognitoUserAttribute( { Name: 'name', Value: name } ) ],
                                                     null,
                                                     (err, result) => {
                                                         if(!result) {
